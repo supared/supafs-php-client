@@ -1,0 +1,25 @@
+{
+    "name": "supared/supafs-php-client",
+    "version": "1.0.0",
+    "description": "A PHP client library for using the SupaFS object storage service.",
+    "type": "library",
+    "keywords": ["supared", "supafs", "object", "storage", "service"],
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Bobby Allen",
+            "email": "ballen@supared.com",
+            "homepage": "http://supared.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Supared\\SupaFS\\": "src/"
+        }
+    }
+}
