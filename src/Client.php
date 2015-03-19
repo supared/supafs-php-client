@@ -4,11 +4,6 @@ class Client
 {
 
     /**
-     * The base URL for the SupaFS API.
-     */
-    const SUPAFS_API_URL = "https://fs.supared.com/api/1/";
-
-    /**
      * The username to use to access the service with.
      * @var string
      */
