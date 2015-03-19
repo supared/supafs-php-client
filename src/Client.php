@@ -60,4 +60,69 @@ class Client
     {
         $this->token = base64_encode($this->user . '|' . $this->key);
     }
+
+    /**
+     * Retrieve the current user's details from the web service.
+     */
+    public function accountInfo()
+    {
+        
+    }
+
+    /**
+     * Retrieve all containers for this account.
+     */
+    public function containers()
+    {
+        
+    }
+
+    /**
+     * Crete a new container.
+     * @param string $name The container to create.
+     */
+    public function createContainer($name)
+    {
+        
+    }
+
+    /**
+     * The container to delete.
+     * @param string $cuuid The container UUID
+     */
+    public function deleteContainer($cuuid)
+    {
+        
+    }
+
+    /**
+     * Retrieve all objects stored in a given container.
+     * @param string $cuuid The container UUID to list the objects from.
+     */
+    public function objects($cuuid)
+    {
+        
+    }
+
+    /**
+     * Store a file/object in a SupaFS container.
+     * @param string $data Raw file data (or @file_path).
+     * @param string $filename The filename to store the object as.
+     * @param type $cuuid
+     * @param type $overwrite
+     */
+    public function put($data, $filename, $cuuid, $overwrite = false)
+    {
+        
+    }
+
+    /**
+     * Retrieve a file/object from SupaFS
+     * @param string $uuid The file UUID to retrieve.
+     * @param int $revision (Default '0', the lastest.)
+     */
+    public function retrieve($uuid, $revision = 0)
+    {
+        
+    }
 }
