@@ -20,7 +20,7 @@ class HttpClient
     {
         $this->token = $token;
         $this->guzzle = new GuzzleClient([
-            'base_url' => [self::SUPAFS_API_URL],
+            'base_url' => [self::SFS_API_URL, []],
             'defaults' => [
                 'headers' => [
                     'User-agent' => 'SupaFS PHP Client/' . self::SFS_CLIENT_VERSION,

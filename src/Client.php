@@ -1,5 +1,7 @@
 <?php namespace Supared\SupaFS;
 
+use Supared\SupaFS\Handlers\HttpClient;
+
 class Client
 {
 
@@ -21,31 +23,17 @@ class Client
      */
     private $token;
 
+    /**
+     * The HTTP wrapper for the web service.
+     * @var type 
+     */
+    private $service;
+
     public function __construct($user = null, $key = null)
     {
         $this->user = $user;
         $this->key = $key;
-        $this->generateApiToken();
-    }
-
-    /**
-     * Set the username of which to use to access the API.
-     * @param type $username
-     */
-    public function setUser($username)
-    {
-        $this->user = $username;
-        $this->generateApiToken();
-    }
-
-    /**
-     * Set the API key of which to use to access the API.
-     * @param type $key
-     */
-    public function setKey($key)
-    {
-        $this->key = $key;
-        $this->generateApiToken();
+        $this->service = new HttpClient($this->token);
     }
 
     /**
@@ -61,7 +49,7 @@ class Client
      */
     public function accountInfo()
     {
-        
+        return $this->service->get('user');
     }
 
     /**
@@ -69,7 +57,7 @@ class Client
      */
     public function containers()
     {
-        
+        return $this->service->get('container');
     }
 
     /**
