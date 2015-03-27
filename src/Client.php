@@ -29,11 +29,17 @@ class Client
      */
     private $service;
 
-    public function __construct($user = null, $key = null)
+    /**
+     * Creates a new instance of the Client
+     * @param string $user The SupaFS useranme
+     * @param string $key The SupaFS API key
+     * @param array $options Optional request settings (for Guzzle)
+     */
+    public function __construct($user = null, $key = null, $options = [])
     {
         $this->user = $user;
         $this->key = $key;
-        $this->service = new HttpClient($this->token);
+        $this->service = new HttpClient($this->token, $options);
     }
 
     /**
