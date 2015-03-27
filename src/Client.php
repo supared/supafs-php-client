@@ -43,7 +43,8 @@ class Client
     }
 
     /**
-     * Generates the API token.
+     * Generate the API token
+     * @return void
      */
     private function generateApiToken()
     {
@@ -72,7 +73,11 @@ class Client
      */
     public function createContainer($name)
     {
-        
+        return $this->service->post('container', [
+                'body' => [
+                    'name' => $name,
+                ]
+        ]);
     }
 
     /**
@@ -81,7 +86,7 @@ class Client
      */
     public function deleteContainer($cuuid)
     {
-        
+        return $this->service->delete('/container/' . $cuuid);
     }
 
     /**
@@ -90,7 +95,7 @@ class Client
      */
     public function objects($cuuid)
     {
-        
+        return $this->service->get('container/' . $cuuid . '/?include=objects');
     }
 
     /**
@@ -107,10 +112,10 @@ class Client
 
     /**
      * Retrieve a file/object from SupaFS
-     * @param string $uuid The file UUID to retrieve.
+     * @param string $ouuid The object UUID to retrieve.
      * @param int $revision (Default '0', the lastest.)
      */
-    public function retrieve($uuid, $revision = 0)
+    public function retrieve($ouuid, $revision = 0)
     {
         
     }
