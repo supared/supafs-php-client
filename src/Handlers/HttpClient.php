@@ -14,6 +14,10 @@ class HttpClient
      * The base URL for the SupaFS API.
      */
     const SFS_API_URL = "https://fs.supared.com/api/v1.1/";
+
+    /**
+     * The SupaFS client version.
+     */
     const SFS_CLIENT_VERSION = "1.0";
 
     public function __construct($token, $options = [])
@@ -31,23 +35,33 @@ class HttpClient
         ]);
     }
 
+    /**
+     * Perform a HTTP GET request to the API
+     * @param string $endpoint
+     * @param array $options
+     * @return type
+     */
     public function get($endpoint, $options = [])
     {
+        // Cast this as an entitie object.
         return $this->guzzle->get($endpoint, $options);
     }
 
     public function post($endpoint, $options = [])
     {
+        // Cast this as an entitie object.
         return $this->guzzle->post($endpoint, $options);
     }
 
     public function put($endpoint, $options = [])
     {
+        // Cast this as an entitie object.
         return $this->guzzle->put($endpoint, $options);
     }
 
     public function delete($endpoint, $options = [])
     {
+        // Cast this as an entitie object.
         return $this->delete($endpoint, $options);
     }
 }
