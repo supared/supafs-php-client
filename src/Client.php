@@ -115,6 +115,7 @@ class Client
                 'headers' => [
                     'sfs-filename' => $filename,
                     'sfs-filesize' => strlen($data),
+                    'sfs-overwrite' => $overwrite,
                 ],
                 'body' => $data,
         ]);
