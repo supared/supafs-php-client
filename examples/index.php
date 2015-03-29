@@ -8,5 +8,5 @@ $config = [
     //'debug' => true,
 ];
 
-$supafs = SupaClient::create('ballen', '9eNUcatvATwYYPoFY0CTT7rFMBLmRnQC', $config);
+$supafs = SupaClient::create('ballen', '3UyHhA9zQd9bg9keuQLkG8HzUME3eBPf', $config);
 var_export($supafs->accountInfo());

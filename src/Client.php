@@ -37,8 +37,12 @@ class Client
      */
     public function __construct($user = null, $key = null, $options = [])
     {
+        // Set the username and API key for the user.
         $this->user = $user;
         $this->key = $key;
+        // Generate the authentication token.
+        $this->generateApiToken();
+        // Create a new instance of the HTTP handler.
         $this->service = new HttpClient($this->token, $options);
     }
 
