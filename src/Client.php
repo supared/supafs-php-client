@@ -114,7 +114,7 @@ class Client
         return $this->service->put('object/' . $cuuid, [
                 'headers' => [
                     'sfs-filename' => $filename,
-                    'sfs-filesize' => 99999, // @TODO check actual request size!
+                    'sfs-filesize' => strlen($data),
                 ],
                 'body' => $data,
         ]);
