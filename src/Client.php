@@ -111,11 +111,16 @@ class Client
      */
     public function put($data, $filename, $cuuid, $overwrite = false)
     {
+        // Should we be writing a new file or uploading a new verion of it?
+        $is_update = 'false';
+        if ($overwrite) {
+            $is_update = 'true';
+        }
         return $this->service->put('object/' . $cuuid, [
                 'headers' => [
                     'sfs-filename' => $filename,
                     'sfs-filesize' => strlen($data),
-                    'sfs-overwrite' => $overwrite,
+                    'sfs-overwrite' => $is_update,
                 ],
                 'body' => $data,
         ]);
