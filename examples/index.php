@@ -9,4 +9,39 @@ $config = [
 ];
 
 $supafs = SupaClient::create('ballen', '3UyHhA9zQd9bg9keuQLkG8HzUME3eBPf', $config);
-var_export($supafs->accountInfo());
+
+/**
+ * Return the current user account information.
+ */
+//var_export($supafs->accountInfo());
+
+
+/**
+ * Return all object storage containers for the current user.
+ */
+//var_export($supafs->containers());
+
+
+/**
+ * Create a new storage container
+ */
+//var_export($supafs->createContainer('Bobbys work'));
+
+/**
+ * Deletes a container
+ */
+//var_export($supafs->deleteContainer('cf69c234-006b-4d92-97f0-2f678c5d'));
+
+/**
+ * Display all object for a given container
+ */
+//var_dump($supafs->objects('d4b1c462-13b6-40ed-9427-1967b185'));
+
+/**
+ * Upload some data to the web service.
+ */
+//$file_to_upload = 'My example file.txt';
+//var_export($supafs->put(file_get_contents('files/' . $file_to_upload), $file_to_upload, 'eca26cf4-d0c3-4c40-9c96-e9b6a3b3'));
+
+$photo_to_upload = 'random_car_parts.JPG';
+var_export($supafs->put(file_get_contents('files/' . $photo_to_upload), $photo_to_upload , 'eca26cf4-d0c3-4c40-9c96-e9b6a3b3'));

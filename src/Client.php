@@ -60,7 +60,7 @@ class Client
      */
     public function accountInfo()
     {
-        return $this->service->get('user');
+        return $this->service->get('user')->json();
     }
 
     /**
@@ -68,7 +68,7 @@ class Client
      */
     public function containers()
     {
-        return $this->service->get('container');
+        return $this->service->get('container')->json();
     }
 
     /**
@@ -81,7 +81,7 @@ class Client
                 'body' => [
                     'name' => $name,
                 ]
-        ]);
+            ])->json();
     }
 
     /**
@@ -90,7 +90,7 @@ class Client
      */
     public function deleteContainer($cuuid)
     {
-        return $this->service->delete('/container/' . $cuuid);
+        return $this->service->delete('/container/' . $cuuid)->json();
     }
 
     /**
@@ -99,7 +99,7 @@ class Client
      */
     public function objects($cuuid)
     {
-        return $this->service->get('container/' . $cuuid . '/?include=objects');
+        return $this->service->get('container/' . $cuuid . '/?include=objects')->json();
     }
 
     /**
@@ -111,7 +111,13 @@ class Client
      */
     public function put($data, $filename, $cuuid, $overwrite = false)
     {
-        
+        return $this->service->put('object/' . $cuuid, [
+                'headers' => [
+                    'sfs-filename' => $filename,
+                    'sfs-filesize' => 99999, // @TODO check actual request size!
+                ],
+                'body' => $data,
+        ]);
     }
 
     /**

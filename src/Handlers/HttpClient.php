@@ -48,7 +48,7 @@ class HttpClient
      * Perform a HTTP GET request to the API
      * @param string $endpoint
      * @param array $options
-     * @return type
+     * @return \GuzzleHttp\Message\Response
      */
     public function get($endpoint, $options = [])
     {
