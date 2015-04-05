@@ -43,5 +43,12 @@ $supafs = SupaClient::create('ballen', '3UyHhA9zQd9bg9keuQLkG8HzUME3eBPf', $conf
 //$file_to_upload = 'My example file.txt';
 //var_export($supafs->put(file_get_contents('files/' . $file_to_upload), $file_to_upload, 'eca26cf4-d0c3-4c40-9c96-e9b6a3b3'));
 
-$photo_to_upload = 'random_car_parts.JPG';
-var_export($supafs->put(file_get_contents('files/' . $photo_to_upload), $photo_to_upload, 'eca26cf4-d0c3-4c40-9c96-e9b6a3b3', true));
+//$photo_to_upload = 'random_car_parts.JPG';
+//var_export($supafs->put(
+//        file_get_contents('files/' . $photo_to_upload), $photo_to_upload, 'eca26cf4-d0c3-4c40-9c96-e9b6a3b3', true)
+//);
+
+/**
+ * Get the file data and output it to the screen:
+ */
+var_export($supafs->retrieve('a16197d9-778b-4ab1-82ad-5d9de6b8'));

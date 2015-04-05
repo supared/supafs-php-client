@@ -133,6 +133,10 @@ class Client
      */
     public function retrieve($ouuid, $revision = 0)
     {
-        
+        $call = $this->service->get('object/' . $ouuid);
+        if($call->getStatusCode() == 200) {
+            return (string) $call->getBody();
+        }
+        return null;
     }
 }
