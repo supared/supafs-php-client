@@ -1,0 +1,5 @@
+This is just some example text data that we'll upload to the web service ;)
+
+It's nothing special but the same example can be used for uploading other file types too!
+
+~Bobby

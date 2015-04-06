@@ -51,4 +51,10 @@ $supafs = SupaClient::create('ballen', '3UyHhA9zQd9bg9keuQLkG8HzUME3eBPf', $conf
 /**
  * Get the file data and output it to the screen:
  */
-var_export($supafs->retrieve('a16197d9-778b-4ab1-82ad-5d9de6b8'));
+echo $supafs->retrieve('a16197d9-778b-4ab1-82ad-5d9de6b8');
+
+/**
+ * Write the file to the local disk...
+ */
+file_put_contents('myexample.txt', $supafs->retrieve('a16197d9-778b-4ab1-82ad-5d9de6b8'));
+
