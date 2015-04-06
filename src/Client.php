@@ -106,10 +106,11 @@ class Client
      * Store a file/object in a SupaFS container.
      * @param string $data Raw file data (or @file_path).
      * @param string $filename The filename to store the object as.
-     * @param type $cuuid
-     * @param type $overwrite
+     * @param string $cuuid The container ID of where to store the object.
+     * @param string $mime The MIME type of the file.
+     * @param boolean $overwrite Enable multiple revisions of ths object.
      */
-    public function put($data, $filename, $cuuid, $overwrite = false)
+    public function put($data, $filename, $cuuid, $mime = null, $overwrite = false)
     {
         // Should we be writing a new file or uploading a new verion of it?
         $is_update = 'false';
@@ -117,10 +118,12 @@ class Client
             $is_update = 'true';
         }
         return $this->service->put('object/' . $cuuid, [
+                //'debug' => true,
                 'headers' => [
                     'sfs-filename' => $filename,
                     'sfs-filesize' => strlen($data),
                     'sfs-overwrite' => $is_update,
+                    'sfs-mimetype' => $mime,
                 ],
                 'body' => $data,
         ]);
@@ -134,10 +137,9 @@ class Client
     public function retrieve($ouuid, $revision = 0)
     {
         $call = $this->service->get('object/' . $ouuid);
-        if($call->getStatusCode() == 200) {
+        if ($call->getStatusCode() == 200) {
             return (string) $call->getBody();
         }
         return null;
     }
-    
 }
