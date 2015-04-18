@@ -13,8 +13,7 @@ class HttpClient
     /**
      * The base URL for the SupaFS API.
      */
-    //const SFS_API_URL = "https://fs.supared.com/api/v1.1/";
-    const SFS_API_URL = "http://supafs.dev/api/v1.1/";
+    const SFS_API_URL = "https://fs.supared.com/api/v1.1/";
 
     /**
      * The SupaFS client version.
